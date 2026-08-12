@@ -113,8 +113,8 @@ sequence, each task depending on the previous one succeeding:
 | Data quality (flag-based, auditable) | `02_silver_validate_crossmatch.py` |
 | Orchestration | Databricks Jobs (screenshot above) |
 | Observability / reliable operations | Quality gates; watermark-based incremental ingestion avoids wasted reprocessing |
-| Lineage | Lineage notes at the end of each notebook; `zsp_updated_version` traces each updated value to its source catalogue version |
-| Integration of diverse data sources | Band reference dimension table (static, independent) + spatial cross-match with an entirely separate public catalogue (DJA) |
+| Lineage | Lineage notes at the end of each notebook; `dja_updated_version` traces each updated value to its source catalogue version |
+| Integration of diverse data sources | Spatial cross-match with an entirely separate public catalogue (DJA) |
 | Data versioning / change detection | `03_gold_enrich.py`, using Delta Lake time travel rather than a bespoke tracking table |
 
 ## Status
