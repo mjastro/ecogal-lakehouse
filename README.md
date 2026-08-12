@@ -102,7 +102,7 @@ separate change-log table.
 Scheduled as a Databricks Job running the three notebooks in strict
 sequence, each task depending on the previous one succeeding:
 
-![Job DAG](docs/job_dag_screenshot.png)
+![Job DAG](job_dag_screenshot.png)
 
 ## What this project demonstrates
 
