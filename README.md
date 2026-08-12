@@ -19,27 +19,26 @@ ecogal_prior_all_v1.csv         DJA catalogue (public S3, versioned)
 └───────┬────────┘              └────────┬────────┘
         ▼                                 ▼
 ┌────────────────────┐          ┌──────────────────────────┐
-│ silver.             │          │ silver.                   │
-│ sources_validated   │          │ jwst_spectra_validated     │
-│ (schema enforcement, │          │ (grade-3 filter,           │
-│  quality flags,      │          │  one primary row/source)   │
-│  quality gate)       │          └───────────┬────────────────┘
-└──────────┬───────────┘                      │
-           │         spatial cross-match       │
-           │      (astropy, 0.5" tolerance)     │
-           └────────────────┬───────────────────┘
+│ silver.             │         │ silver.                  │
+│ sources_validated   │         │ jwst_spectra_validated   │
+│ (schema enforcement, │        │ (grade-3 filter,         │
+│  quality flags,      │        │  one primary row/source) │
+│  quality gate)       │        └───────────┬──────────────┘
+└──────────┬───────────┘                    │
+           │         spatial cross-match    │
+           │      (astropy, 0.5" tolerance) │
+           └────────────────┬───────────────┘
                              ▼
                  ┌────────────────────────────┐
-                 │ silver.                     │
-                 │ jwst_alma_crossmatch         │
-                 └───────────┬──────────────────┘
+                 │ silver.                    │
+                 │ jwst_alma_crossmatch       │
+                 └───────────┬────────────────┘
                               ▼
                  ┌─────────────────────────────────────┐
-                 │ gold.alma_sources_with_specz          │
-                 │ (band dimension join +                │
-                 │  evolving best-redshift +             │
-                 │  version-based change detection)      │
-                 └────────────────────────────────────────┘
+                 │ gold.alma_sources_with_specz        │
+                 │  (evolving best-redshift +          │
+                 │  version-based change detection)    │
+                 └─────────────────────────────────────┘
 ```
 
 ## Bring your own data
@@ -84,7 +83,7 @@ an independent TOPCAT match.
 
 **Evolving data, with the original preserved.** The gold table's
 `zsp_best_avail_updated` column prefers a new JWST measurement when
-available; the original `zsp_best_avail` value from data release is kept
+available; the original `zsp_best_avail` value from the data release is kept
 unchanged alongside it, for reproducibility. `has_jwst_filled_gap`
 specifically distinguishes "JWST filled a source that previously had no
 valid redshift" from "JWST re-measured a source that already had one" —
